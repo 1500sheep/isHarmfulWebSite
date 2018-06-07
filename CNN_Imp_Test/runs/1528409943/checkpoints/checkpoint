@@ -1,0 +1,3 @@
+model_checkpoint_path: "D:\\isHarmfulWebSite\\CNN_Imp_Test\\runs\\1528409943\\checkpoints\\model-120"
+all_model_checkpoint_paths: "D:\\isHarmfulWebSite\\CNN_Imp_Test\\runs\\1528409943\\checkpoints\\model-100"
+all_model_checkpoint_paths: "D:\\isHarmfulWebSite\\CNN_Imp_Test\\runs\\1528409943\\checkpoints\\model-120"
