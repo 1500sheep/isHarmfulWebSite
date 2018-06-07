@@ -3,3 +3,12 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  form(name="input_url",method="post")
+      div.input
+          span.label Type your url here:
+          input(type="text",name="title")
+      div.actions
+          input(type="submit",value="submit")
+
+  - if(userValue)
+    div userValue

@@ -4,16 +4,26 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+var expressValidator=require('express-validator');
 var app = express();
-
+const router=express.Router();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
+app.use(expressValidator({errorFormatter: function(param,msg,value){
+  var namespace=param.split('.'),
+      root=namespace.shift(),
+      formParam=root;
+  while(namespace.length){
+    formParam+='['+namespace.shift()+']';
+  }return{
+    param: formParam,
+            msg:msg,
+            value:value
+        };
+    }}));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -41,6 +51,9 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+app.listen(3000,function(){
+  console.log('server running on port 3000');
 });
 
 module.exports = app;
