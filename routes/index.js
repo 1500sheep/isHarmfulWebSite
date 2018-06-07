@@ -3,6 +3,10 @@ var router = express.Router();
 var request = require("request");
 var cheerio = require("cheerio");
 var url_input="https://twitter.com/moonriver365";
+const webdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const driver = new webdriver.Builder().forBrowser('chrome').build();
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     //var inputUrl = "https://twitter.com/moonriver365";
